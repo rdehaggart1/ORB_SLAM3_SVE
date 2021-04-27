@@ -163,6 +163,13 @@ public:
     // Number of KeyPoints.
     int N;
 
+    // <SVE> Scene Visibility Estimation
+    float visibility;
+    float SVE_a;
+    float SVE_b;
+    float SVE_c; 
+    int n_trackedPoints;
+
     // Vector of keypoints (original for visualization) and undistorted (actually used by the system).
     // In the stereo case, mvKeysUn is redundant as images must be rectified.
     // In the RGB-D case, RGB images can be distorted.
