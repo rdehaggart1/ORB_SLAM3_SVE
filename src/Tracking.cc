@@ -2991,6 +2991,9 @@ void Tracking::SearchLocalPoints()
 
         int matches = matcher.SearchByProjection(mCurrentFrame, mvpLocalMapPoints, th, mpLocalMapper->mbFarPoints, mpLocalMapper->mThFarPoints);
     }
+
+    // <SVE> save the number of map points that should be within view of the frame
+    mapPointsInFrustum = nToMatch;
 }
 
 void Tracking::UpdateLocalMap()
