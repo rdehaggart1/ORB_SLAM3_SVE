@@ -340,9 +340,9 @@ Frame::Frame(const cv::Mat &imGray, const double &timeStamp, ORBextractor* extra
 
     mb = mbf/fx;
 
-    /* <SVE> SCENE VISIBILITY ESTIMATION */
+    /* ---------- <SVE> ---------- */
     // for every frame, we would like to know how visible the scene is. this can be based on a set of metrics relating to the extracted features
-    
+
     // a: how many points have been extracted relative to the requested number?
     SVE_a = N / float(mpORBextractorLeft->Getnfeatures());      // a is simply the ratio between the actual # of points and the 'maximum' # of points
 
@@ -352,6 +352,7 @@ Frame::Frame(const cv::Mat &imGray, const double &timeStamp, ORBextractor* extra
     // c: how many of these points have been tracked (i.e. belong to the local map)?
     // c is contained in 'Tracking.cc' where the calculation trackedPoints/totalPoints is performed.
         // if all points in the frame were already in the local map, they've all been tracked so c=1
+    /* --------------------------- */    
 
     //Set no stereo fisheye information
     Nleft = -1;
@@ -399,7 +400,7 @@ void Frame::AssignFeaturesToGrid()
     /* ---------- <SVE> ---------- */
     // declare a binning array where we can count how many points are in each grid square in the image
     // the grid that original is using is very fine (~3000 squares), and we'd probably get 1 or 2 points per grid square
-    // if we make the grid less fine, the efficiency should improve for the SVE part
+    // if we make the grid less fine, the efficiency should improve for the SVE part  
     int reductionFactor = 8;                                // reduce the number of rows from FRAME_GRID_ROWS to reductionFactor, same for cols
     int SVEGridSquares = reductionFactor * reductionFactor; // so we now have a grid of reductionFactor*reductionFactor squares
     int gridBin[SVEGridSquares] = {0};                      // this is our binning array
@@ -454,6 +455,7 @@ void Frame::AssignFeaturesToGrid()
     // the b metric is then normalised to the 0-1 range by finding how close the distribution is to the worst-case scenario
     SVE_b = 1 - (chiSquared/worstCase);
     /* ---------------------------*/ 
+
 
 }
 

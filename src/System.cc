@@ -403,9 +403,6 @@ cv::Mat System::TrackMonocular(const cv::Mat &im, const double &timestamp, const
     mTrackedMapPoints = mpTracker->mCurrentFrame.mvpMapPoints;
     mTrackedKeyPointsUn = mpTracker->mCurrentFrame.mvKeysUn;
 
-    // <SVE> *temp* print to console the number of extracted map points
-    cout << mpTracker->mCurrentFrame.N << " map points of " << mpTracker->mCurrentFrame.mpORBextractorLeft->Getnfeatures() << " (" << mpTracker->mCurrentFrame.SVE_a << ", " << mpTracker->mCurrentFrame.SVE_b << ", " << mpTracker->mCurrentFrame.SVE_c << ")" << endl;
-    
     /* ---------- <SVE> ---------- */
     // store all timestamps of visibility measurements in vSVE_t
     vSVE_t.push_back(mpTracker->mCurrentFrame.mTimeStamp); 
@@ -416,7 +413,6 @@ cv::Mat System::TrackMonocular(const cv::Mat &im, const double &timestamp, const
     // store all the total visibilities and the three metrics in a vector
     std::vector<float> newRow = {mpTracker->mCurrentFrame.visibility, mpTracker->mCurrentFrame.SVE_a, mpTracker->mCurrentFrame.SVE_b, mpTracker->mCurrentFrame.SVE_c};
     vSVE.push_back(newRow);
-
     // timestamps and visibility information are all written to a .txt file in System::SaveVisibilityStatistics()
     /* ---------------------------*/ 
 
@@ -932,6 +928,8 @@ void System::ChangeDataset()
     mpTracker->NewDataset();
 }
 
+/* ---------- <SVE> ---------- */
+// similar to saving keyframe trajectory, this function saves all the recorded visibility stats to a .txt file
 void System::SaveVisibilityStatistics(const string &filename)
 {
     cout << endl << "Saving visibility statistics to " << filename << " ..." << endl;   

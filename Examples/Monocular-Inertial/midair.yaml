@@ -21,7 +21,7 @@ Camera.width: 1024
 Camera.height: 1024
 
 # Camera frames per second 
-Camera.fps: 25.0
+Camera.fps: 25
 
 # Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
 Camera.RGB: 1
@@ -31,9 +31,9 @@ Tbc: !!opencv-matrix
    rows: 4
    cols: 4
    dt: f
-   data: [0.0, 0.0, 1.0, 0.0,
+   data: [0.0, 1.0, 0.0, 0.0,
+          0.0, 0.0, 1.0, 0.0,
           1.0, 0.0, 0.0, 0.0,
-          0.0, 1.0, 0.0, 0.0,
           0.0, 0.0, 0.0, 1.0]
 
 # IMU noise
