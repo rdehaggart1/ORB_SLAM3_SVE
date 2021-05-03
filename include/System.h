@@ -160,8 +160,9 @@ public:
     // See format details at: http://www.cvlibs.net/datasets/kitti/eval_odometry.php
     void SaveTrajectoryKITTI(const string &filename);
 
-    // <SVE> save the full set of scene visibility estimation values with their timestamps
-    void SaveVisibilityStatistics(const string &filename);
+    /* ---------- <SVE> ---------- */ 
+    void SaveVisibilityStatistics(const string &filename);  // save the full set of scene visibility estimation values with their timestamps
+    /* --------------------------- */
 
     // TODO: Save/Load functions
     // SaveMap(const string &filename);
@@ -201,9 +202,10 @@ private:
     //Map* mpMap;
     Atlas* mpAtlas;
 
-    // <SVE> vectors for all SVE statistics
-    std::vector<std::vector<float>> vSVE;
-    std::vector<double> vSVE_t;
+    /* ---------- <SVE> ---------- */ 
+    std::vector<std::vector<float>> vSVE;   // vectors for all SVE statistics
+    std::vector<double> vSVE_t;             // vector for timestamps of each SVE measurement
+    /* --------------------------- */
 
     // Tracker. It receives a frame and computes the associated camera pose.
     // It also decides when to insert a new keyframe, create some new MapPoints and
