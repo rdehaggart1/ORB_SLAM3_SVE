@@ -29,6 +29,7 @@ Examples/ROS/ORB_SLAM3/CMakeLists.txt.user
 Examples/ROS/ORB_SLAM3/build/
 
 KeyFrameTrajectory.txt
+SceneVisibilityEstimation.txt
 CameraTrajectory.txt
 kf_*.txt
 f_*.txt
