@@ -27,5 +27,5 @@ echo "Configuring and building ORB_SLAM3_SVE ..."
 
 mkdir build
 cd build
-cmake .. -DCMAKE_BUILD_TYPE=Debug
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j

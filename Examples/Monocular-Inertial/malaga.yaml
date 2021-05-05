@@ -32,10 +32,10 @@ Tbc: !!opencv-matrix
    rows: 4
    cols: 4
    dt: f
-   data: [ 0.0,        0.0,        1.0,      -0.385,
-          -0.9897763,  0.1426289,  0.0000000, 0.04,
-          -0.1426289, -0.9897763, -0.0000000,-0.057,
-           0.0,        0.0,        0.0,       1.0]
+   data: [ 0.0,        0.0,        1.0,        0.02,
+          -0.9897763,  0.1426289,  0.0000000,  0.057,
+          -0.1426289, -0.9897763, -0.0000000, -0.385,
+           0.0,        0.0,        0.0,        1.0]
 
 # IMU noise
 # (from: https://drive.google.com/file/d/0B5HPWlmxIrvFZ0tUZDk5ck9sMGs/view)
@@ -50,7 +50,7 @@ IMU.Frequency: 100
 #--------------------------------------------------------------------------------------------
 
 # ORB Extractor: Number of features per image
-ORBextractor.nFeatures: 1000 # 1000
+ORBextractor.nFeatures: 1500 # 1000
 
 # ORB Extractor: Scale factor between levels in the scale pyramid 	
 ORBextractor.scaleFactor: 1.2
